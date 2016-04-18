@@ -1,4 +1,4 @@
-package leetcode.before100;
+package leetcode.before100.before010;
 
 import java.util.Scanner;
 
