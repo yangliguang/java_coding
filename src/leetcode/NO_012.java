@@ -9,7 +9,19 @@ public class NO_012 {
 	public static void main(String[] args) {
 		NO_012 m = new NO_012();
 		System.out.println(m.intToRoman(1999));
+		System.out.println(m.intToRoman2(1));
 	}
+	//改进版
+	public String intToRoman2(int num) {
+		String[][] str = {{"","M","MM","MMM","","","","","",""},{"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"},{"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"},{"","I","II","III","IV","V","VI","VII","VIII","IX"}};
+		String r;
+		r = str[0][num/1000%10];
+		r += str[1][num/100%10];
+		r += str[2][num/10%10];
+		r += str[3][num%10];
+		return r;
+	}
+	
 	public String intToRoman(int num) {
 		int[] in = {1000,100,10,1};
 		String[] str1 = {"M","C","X","I"};

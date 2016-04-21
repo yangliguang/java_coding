@@ -9,6 +9,28 @@ public class NO_013 {
 	public static void main(String[] args) {
 		NO_013 m = new NO_013();
 		System.out.println(m.romanToInt("MCMXCIX"));
+		System.out.println(m.romanToInt2("MCMXCIX"));
+	}
+	
+	public int romanToInt2(String s){
+		String[][] str = {{"","M","MM","MMM","","","","","",""},{"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"},{"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"},{"","I","II","III","IV","V","VI","VII","VIII","IX"}};
+		int r = 0;
+		for(int i = 3; i >= 0; i--){
+			if(s.startsWith(str[0][i])){
+				r += i * 1000;
+				s = s.substring(str[0][i].length());
+			}
+				
+		}
+		for(int j = 2; j >= 0; j--){
+			for(int i = 9; i >= 0; i--){
+				if(s.startsWith(str[3-j][i])){
+					r += i * (int)(Math.pow(10, j));
+					s = s.substring(str[3-j][i].length());
+				}
+			}
+		}
+		return r;
 	}
 	public int romanToInt(String s) {
 		if(s == null || "".equals(s))
