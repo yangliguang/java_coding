@@ -13,6 +13,7 @@ public class NO_003 {
 		NO_003 m = new NO_003();
 		while(sc.hasNext())
 			System.out.println(m.lengthOfLongestSubstring(sc.next()));
+		sc.close();
 	}
 	public int lengthOfLongestSubstring(String s) {
 		if(s=="" || s.equals("")){

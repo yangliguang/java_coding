@@ -1,8 +1,5 @@
 package leetcode;
 
-import java.util.Scanner;
-
-import test.Template;
 
 /**
  * Author:Young

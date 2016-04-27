@@ -2,7 +2,6 @@ package leetcode;
 
 import java.util.Scanner;
 
-import test.Template;
 
 /**
  * Author:Young
@@ -16,6 +15,7 @@ public class NO_009 {
 		System.out.println(t.isPalindrome(Integer.MIN_VALUE));
 		while(sc.hasNextInt())
 			System.out.println(t.isPalindrome(sc.nextInt()));
+		sc.close();
 	}
 	public boolean isPalindrome(int x) {
 		if(x < 0)

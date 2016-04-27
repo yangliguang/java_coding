@@ -67,5 +67,6 @@ public class NO_008 {
 		while(sc.hasNextLine()){
 			System.out.println(m.myAtoi(sc.nextLine()));
 		}
+		sc.close();
 	}
 }
