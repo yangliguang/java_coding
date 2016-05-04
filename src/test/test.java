@@ -35,7 +35,9 @@ public class test {
 		for(int i : a)
 			System.out.print(Integer.valueOf(i)+" ");*/
 //		System.out.println(1/0);
-		while(true)
-			System.out.println("test");
+//		while(true)
+//			System.out.println("test");
+		String a = "abcd";
+		System.out.println(a.indexOf("ce"));
 	}
 }
