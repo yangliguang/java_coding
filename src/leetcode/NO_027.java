@@ -10,7 +10,22 @@ public class NO_027 {
 		int[] nums = {3,3};
 		System.out.println(new NO_027().removeElement(nums, 3));
 	}
+	
+	//simple solution
 	public int removeElement(int[] nums, int val) {
+		int i = 0, j = nums.length-1;
+		while(i<=j){
+			if(nums[i] == val){
+				nums[i] = nums[j];
+				j--;
+				continue;
+			}
+			i++;
+		}
+		return i;
+	}
+	//my solution 
+	public int removeElement_me(int[] nums, int val) {
 		if(nums == null || nums.length == 0)
 			return 0;
 		int start = 0, end = nums.length-1;
