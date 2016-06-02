@@ -9,18 +9,18 @@ public class CountingSort {
 	public static void main(String[] args) {
 		int[] nums = new int[10];
 		for(int i = 0; i < 10; i++){
-			nums[i] = (int)(Math.random() * 100);
+			nums[i] = (int)(Math.random() * 10) + 90;
 		}
 		for(int i : nums)
 			System.out.print(i+" ");
 		System.out.println();
-		sort(nums, 0, 100);
+		sort(nums, 100);
 		for(int i : nums)
 			System.out.print(i+" ");
 	}
 	
-	public static void sort(int[] nums, int min, int max){
-		int[] count = new int[max-min+1];
+	public static void sort(int[] nums, int max){
+		int[] count = new int[max+1];
 		for(int i : nums)
 			count[i]++;
 		for(int i = 0, j = 0; i < count.length; i++){
