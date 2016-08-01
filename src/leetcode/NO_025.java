@@ -6,45 +6,58 @@ package leetcode;
  * Date: 2016年5月16日下午5:28:27
  */
 public class NO_025 {
+	public static void main(String[] args) {
+		ListNode n = new ListNode(1);
+		n.next = new ListNode(2);
+		n.next.next = new ListNode(3);
+		n.next.next.next = new ListNode(4);
+		n.next.next.next.next = new ListNode(5);
+//		ListNode b = new NO_025().reverseK(n, 5, 1);
+//		System.out.println("finish"+b);
+	}
 	public ListNode reverseKGroup(ListNode head, int k) {
-	    // test whether can get a valid node by moving k - 1 steps
-	    if (!canMove(head, k - 1)) 
-	    	return head;
-	    ListNode p = head;//last parent node of next reversed list, note that the head node will be the tail node(also the last parent node of next reversed list) after reversing
-	    head = reverse(head, k);
-	    while(p.next != null){
-	        if (!canMove(p.next, k - 1)) break;
-	        ListNode nextP = p.next;
-	        p.next = reverse(p.next, k);
-	        p = nextP;
-	    }
-	    return head;
+		if(k < 2 || head == null || head.next == null)
+			return head;
+		ListNode dummy = new ListNode(-1);
+		dummy.next = head;
+		ListNode p1 = dummy;
+		ListNode p2 = p1.next;
+		ListNode p3 = null;
+		while(p2 != null){
+			for(int i = 1; i < k; i++){
+				if(p2.next == null)
+					return p1.next;
+				p2 = p2.next;
+			}
+			p3 = p2.next;
+			p1 = reverse(p1, p2);
+			p2 = p3;
+		}
+		return null;
 	}
-	// return the new head
-	private ListNode reverse(ListNode head, int len){
-	    // after inserting all the nodes except the first node to the front consecutively, we can get a reversed list
-	    ListNode p = head; // last parent node
-	    len--;// we only need to do len - 1 insertions
-	    for (int i = 0; i < len; i++){
-	        ListNode insert = p.next;
-	        p.next = insert.next;
-	        insert.next = head;
-	        head = insert;
-	    }
-	    return head;
+	public ListNode reverse(ListNode head, ListNode tail){
+		ListNode p1 = head.next;
+		ListNode p2 = null;
+		while(p1.next != tail){
+			head.next = p1.next;
+			p2 = p1.next.next;
+			p1.next.next = p1;
+			p1 = head.next;
+		}
+		return p1;
 	}
-	// return null if cannot get a valid node by moving k steps 
-	private boolean canMove(ListNode head, int k){
-	    while(k > 0 && head != null){
-	        head = head.next;
-	        k--;
-	    }
-	    return head != null;
+	public boolean isEnough(ListNode head, int k){
+		if(head == null)
+			return false;
+		int length = 1;
+		while(head.next != null){
+			length++;
+			head = head.next;
+		}
+		if(length >= k)
+			return true;
+		else
+			return false;
 	}
-	
-	public class ListNode{
-		int val;
-		ListNode next;
-		ListNode(int x) { val = x;}
-	}
+	    
 }

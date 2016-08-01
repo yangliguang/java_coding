@@ -7,7 +7,11 @@ package sort;
  */
 public class MergeArray {
 	public static void main(String[] args) {
-		int[] a = {1,4,3,5,7,90,23,45,13,100,0};
+		int n = 3;
+		int[] a = new int[n];
+		for(int i = 0; i < n; i++){
+			a[i] = (int)(Math.random()*1000);
+		}
 //		int[] temp = new int[a.length];
 		new MergeArray().mergeSort(a, 0, a.length-1);
 		for(int i : a)
@@ -23,19 +27,21 @@ public class MergeArray {
 		}
 	}
 	void mergeArray(int[] a, int s, int m, int e){
-		int temp[] = new int[e-s+1];
-		int i = s, j = m+1, k = 0;
-		while(i <= m && j <= e){
-			if(a[i] < a[j])
-				temp[k++] = a[i++];
-			else
-				temp[k++] = a[j++];
+		int[] temp = new int[e-s+1];
+		int p1 = s, p2 = m+1;
+		int i = 0;
+		while(p1 <= m && p2 <= e){
+			if(a[p1] < a[p2]){
+				temp[i++] = a[p1++];
+			} else
+				temp[i++] = a[p2++];
 		}
-		while(i<=m)
-			temp[k++] = a[i++];
-		while(j<=e)
-			temp[k++] = a[j++];
-		for(i = 0; i < e-s+1; i++){
+		while(p1 <= m)
+			temp[i++] = a[p1++];
+		while(p2 <= e){
+			temp[i++] = a[p2++];
+		}
+		for(i = 0; i < temp.length; i++){
 			a[s+i] = temp[i];
 		}
 	}
