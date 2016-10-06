@@ -8,6 +8,12 @@ package fangzheng;
 public class NO_006 {
 	public static void main(String[] args) {
 		new Child();
+		
+		System.out.println("--------");
+		Child c = new  Child();
+		
+		System.out.println("--------");
+		Parent pc = new Child();
 	}
 	
 	

@@ -20,7 +20,7 @@ public class NO_003 {
 	}
 	
 	public class Parent{
-		public int i = 0;
+		public int i = 1;
 		public void echo(){System.out.print(i);}
 		public void echo2(){System.out.print(i);}
 	}

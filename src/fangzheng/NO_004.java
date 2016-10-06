@@ -12,6 +12,6 @@ public class NO_004 {
 		if((i > ++j) && (i++ == j)){
 			i += j;
 		}
-		System.out.println(i);
+		System.out.println(i+" " +j);
 	}
 }

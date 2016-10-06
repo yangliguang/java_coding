@@ -7,6 +7,6 @@ package ccf_cap;
  */
 public class Before201512NO_4 {
 	public static void main(String[] args) {
-		
+		int a = 1000000007;
 	}
 }
