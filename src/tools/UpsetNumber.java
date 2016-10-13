@@ -7,12 +7,13 @@ import java.util.Scanner;
  * @Author yangliguang
  * 2016年9月24日上午11:00:37
  */
-public class GenPhoneNumber {
+public class UpsetNumber {
 	public static void main(String[] args) {
 		System.out.println("请输入号码：");
 		Scanner sc = new Scanner(System.in);
 		while(sc.hasNext()) {
 			System.out.println(gen(sc.next()));
+			System.out.println("请输入号码：");
 		}
 		sc.close();
 	}
