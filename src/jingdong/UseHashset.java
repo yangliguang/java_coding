@@ -15,10 +15,7 @@ public class UseHashset {
 		char[] ca = {'A','B','C','D','E','C','B','A','F'};
 		HashSet<Character> hs = new HashSet<Character>();
 		for(char c : ca){
-			int f = hs.size();
-			hs.add(c);
-			int s = hs.size();
-			if(s-f==0)
+			if(!hs.add(c))
 				System.out.println(c);
 		}
 	}
